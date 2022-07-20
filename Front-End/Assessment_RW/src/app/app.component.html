@@ -1,0 +1,71 @@
+<div class="container">
+  <h1> ASP.NET CRUD</h1>
+
+  <div class="contacts-container">
+    <div class="contacts-forms">
+      <form #form ="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="">First Name</label>
+          <input type="text" name = "FirstName" [(ngModel)]="contact.firstName">
+        </div>
+        <div class="form-group">
+          <label for="">Last Name</label>
+          <input type="text" name = "LastName"  [(ngModel)]="contact.lastName">
+        </div>
+        <div class="form-group">
+          <label for="">Phone</label>
+          <input type="text" name = "Phone"  [(ngModel)]="contact.phone">
+        </div>
+        <div class="form-group">
+          <label for="">Email</label>
+          <input type="text" name = "Email"  [(ngModel)]="contact.email">
+        </div>
+
+        <!--More Experience is required for tying reactive containers to secondary objects
+          as I was not able to complete in time-->
+
+        <div>
+          <label for="">Street</label>
+          <input type="text" name = "Street" [(ngModel)]="contact.addressID.Street">
+          </div>
+          <div>
+            <label for="">City</label>
+            <input type="text" name = "City" [(ngModel)]="contact.addressID.City">
+          </div>
+          <div>
+            <label for="">State</label>
+            <input type="text" name = "State" [(ngModel)]="contact.addressID.State">
+          </div>
+          <div>
+            <label for="">ZIP</label>
+            <input type="text" name = "ZIP" [(ngModel)]="contact.addressID.ZIP">
+          </div>
+
+        <div class="form-group">
+          <button>Save</button>
+        </div>
+
+
+      </form>
+    </div>
+
+    <div class="contacts-grid">
+      <div class="Contact-row" *ngFor="let contact of contacts">
+        <div (click) = "PopulateForm(contact)" class="Contact-row-details">
+          <span>{{ contact.firstName }}&nbsp;</span>
+          <span>{{ contact.lastName }}&nbsp;</span>
+          <span>{{ contact.phone }}&nbsp;</span>
+          <span>{{ contact.email }}&nbsp;</span>
+           <!--attempt at making a reactive box that would store the address Currently incomplete-->
+        <div popup-host class = "dynamic-popup"></div>
+        <span class ="address" (mouseenter)="onAddressMouseEnter($event, {})" style = 'color:blue'>address</span>
+        </div>
+      <div class="Contact-row-action">
+        <a (click) = "deleteContact(contact.contactId)"><i class="fa-solid fa-trash"></i></a>
+      </div>
+    </div>
+    </div>
+
+  </div>
+
+</div>

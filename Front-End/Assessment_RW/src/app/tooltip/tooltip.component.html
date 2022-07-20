@@ -1,0 +1,17 @@
+<div class="container" [style.left]="styleLeft" [style.top]="styleTop">
+  <div class="address-grid">
+    <div class="Address-row">
+      <div class="Address-row-details">
+        <div class="Contact-row" >
+          <div class="Contact-row-details" *ngIf=>
+            <span>{{address.Street}}</span>
+            <span>{{address.City}}</span>
+            <span>{{address.State}}</span>
+            <span>{{address.ZIP}}</span>
+      </div>
+      <div class="Address-row-action">
+        <a><i class="fa-solid fa-pencil"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
